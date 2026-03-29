@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+      - name: list repos
+        run : ls -ltr
 
       - name: Execute shell script
         run: |
