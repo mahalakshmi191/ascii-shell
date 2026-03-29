@@ -1,0 +1,20 @@
+
+
+name: ASCII Workflow
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  ascii_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Execute shell script
+        run: |
+          chmod +x ascii.script.sh
+          ./ascii.script.sh
