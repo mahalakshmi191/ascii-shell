@@ -33,7 +33,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t $REGISTRY/lakshu18/$DOCKER_IMAGE:$IMAGE_TAG -f docker/Dockerfile .
+          docker build -t $REGISTRY/lakshu18/$DOCKER_IMAGE:$IMAGE_TAG .
 
       - name: Push Docker Image
         run: |
