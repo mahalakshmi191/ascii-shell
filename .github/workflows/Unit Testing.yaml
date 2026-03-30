@@ -27,7 +27,7 @@ jobs:
         run: npm test
 
       - name: Archieve test results
-        uses: actions/uplod-artifact@v3
+        uses: actions/upload-artifact@v3
         with:
           name: test results
           path: test-results.xml
