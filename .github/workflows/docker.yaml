@@ -14,7 +14,7 @@ jobs:
   build_and_push:
     runs-on: ubuntu-latest
 
-    # 🔧 Job-level ENV (overrides global if needed)
+    #  Job-level ENV (overrides global if needed)
     env:
       APP_ENV: production
 
