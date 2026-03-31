@@ -36,9 +36,20 @@ jobs:
           echo "Container IP: $CONTAINER_IP"
           echo "CONTAINER_IP=$CONTAINER_IP" >> $GITHUB_ENV
 
-      - name: Test Application Endpoint
+      - name: Test Application Endpoint (with retry)
         run: |
-          curl http://localhost:3000 || exit 1
+          for i in {1..10}; do
+           if curl -f http://localhost:3000; then
+           echo " Application is reachable"
+           exit 0
+           fi
+           echo "⏳ Waiting for application... attempt $i"
+            sleep 5
+           done
+
+          echo "❌ Application failed to start"
+          docker logs test-container
+          exit 1
 
       - name: Stop Container
         run: docker stop test-container
